@@ -1,0 +1,48 @@
+#include "heaterController.h"
+#include "oled_controller.h"
+static int heaterWantTemper=25;
+static int heaterWorkTemper=25;
+
+static uint8_t m_state=0;
+
+void heaterControll(uint8_t onOFF)
+{
+	HAL_GPIO_WritePin(PB5_RELAY_ON_OFF_CTRL_GPIO_Port, PB5_RELAY_ON_OFF_CTRL_Pin,onOFF);
+	m_state=onOFF;
+}
+
+void heaterUp()
+{
+	heaterWantTemper++;
+
+	if (heaterWantTemper>99){
+		heaterWantTemper=0;
+	}
+	printTemper(heaterWantTemper);
+}
+void heaterDown()
+{
+	heaterWantTemper--;
+	if (heaterWantTemper<0){
+		heaterWantTemper=99;
+		}
+	printTemper(heaterWantTemper);
+}
+uint8_t getHeaterState()
+{
+	return m_state;
+}
+void setWorkTemper()
+{
+	heaterWorkTepmer=heaterWantTemper;
+}
+
+void heaterOn(int temper)
+{
+	if (temper>heaterWorkTepmer &&!getHeaterState() ){
+			heaterControll(t_ON);
+	}
+	else{
+		heaterControll(t_OFF);
+	}
+}

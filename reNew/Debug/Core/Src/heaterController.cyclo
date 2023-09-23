@@ -1,0 +1,7 @@
+../Core/Src/heaterController.c:6:6:heaterControll	1
+../Core/Src/heaterController.c:12:6:heaterUp	2
+../Core/Src/heaterController.c:21:6:heaterDown	2
+../Core/Src/heaterController.c:29:9:getHeaterState	1
+../Core/Src/heaterController.c:33:6:setWorkTemper	1
+../Core/Src/heaterController.c:38:6:heaterOn	3
+../Core/Src/heaterController.c:47:5:getFixedTemper	1

@@ -1,0 +1,29 @@
+17:19:08 **** Incremental Build of configuration Debug for project reNew ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"C:/Users/st/STM32CubeIDE/wSnew/reNew/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:100:15: warning: unused variable 'temper' [-Wunused-variable]
+  100 |         float temper=0.0;
+      |               ^~~~~~
+In file included from ../Core/Src/main.c:27:
+At top level:
+../Core/Inc/heaterController.h:13:12: warning: 'heaterWorkTemper' defined but not used [-Wunused-variable]
+   13 | static int heaterWorkTemper=25;
+      |            ^~~~~~~~~~~~~~~~
+../Core/Inc/heaterController.h:12:12: warning: 'heaterWantTemper' defined but not used [-Wunused-variable]
+   12 | static int heaterWantTemper=25;
+      |            ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "reNew.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\st\STM32CubeIDE\wSnew\reNew\STM32F103CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="reNew.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: reNew.elf
+ 
+arm-none-eabi-size   reNew.elf 
+arm-none-eabi-objdump -h -S  reNew.elf  > "reNew.list"
+   text	   data	    bss	    dec	    hex	filename
+  29412	    124	   3444	  32980	   80d4	reNew.elf
+Finished building: default.size.stdout
+ 
+Finished building: reNew.list
+ 
+
+17:19:12 Build Finished. 0 errors, 3 warnings. (took 4s.712ms)
+

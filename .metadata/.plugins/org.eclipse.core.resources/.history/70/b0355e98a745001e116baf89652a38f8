@@ -1,0 +1,8 @@
+#ifndef _OLED_CONTROLLER_H
+#define _OLED_CONTROLLER_H
+#include "ssd1306.h"
+void opening();
+void printMain();
+void printTemper(int temper);
+toggleScreen();
+#endif
